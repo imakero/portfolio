@@ -1,0 +1,142 @@
+$primary-color: #82b35a;
+$font-stack: 'Fira Sans', sans-serif;
+$text-color: #1c1c1c;
+$text-muted-color: #c3c3c3;
+
+@mixin centerHorizontally {
+  margin: 0 auto;
+}
+
+@mixin resetMarginPadding {
+  padding: 0;
+  margin: 0;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+html,
+body {
+  @include resetMarginPadding();
+  font-family: $font-stack;
+  color: $text-color;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  line-height: 1.5;
+}
+
+header {
+  max-width: 800px;
+  @include centerHorizontally();
+
+  nav {
+    margin: 0 4rem;
+  }
+
+  ul {
+    @include resetMarginPadding();
+  }
+
+  li {
+    display: inline-block;
+    margin-left: 1rem;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0rem;
+  }
+
+  a {
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+}
+
+main {
+  max-width: 800px;
+  @include centerHorizontally();
+
+  margin-right: 4rem;
+  padding: 4rem;
+
+  background-color: $primary-color;
+
+  .article {
+    position: relative;
+  }
+
+  section:not(.section-heading) {
+    margin-left: 33%;
+    width: 67%;
+  }
+
+  h1 {
+    position: absolute;
+    font-size: 48px;
+    left: 0;
+    margin-left: 3rem;
+    z-index: 1;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .main-heading {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .image-container {
+    max-width: 67%;
+
+    img {
+      border-radius: 50%;
+    }
+  }
+}
+
+footer {
+  @include centerHorizontally();
+
+  max-width: 800px;
+
+  nav {
+    margin: 2rem 0 1rem;
+    display: flex;
+
+    ul {
+      padding: 0;
+      list-style-type: none;
+      width: calc(33%);
+    }
+
+    ul:first-of-type {
+      margin-left: 4rem;
+      width: calc(33% - 4rem);
+    }
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  small {
+    color: $text-muted-color;
+    margin-left: 4rem;
+    padding-bottom: 2rem;
+  }
+}
