@@ -2,7 +2,6 @@ import Image from 'next/image'
 import React from 'react'
 
 export default function parseBlock(block) {
-  //console.log(JSON.stringify(block, null, 2))
   switch (block.type) {
     case 'heading_1':
       return parseHeading1(block)
@@ -14,7 +13,10 @@ export default function parseBlock(block) {
       return parseParagraph(block)
     case 'image':
       return parseImage(block)
+    case 'code':
+      return parseCode(block)
     default:
+      console.log(JSON.stringify(block, null, 2))
       throw new Exception('Could not parse')
   }
 }
@@ -44,6 +46,7 @@ const parseParagraph = (block) => {
     </p>
   )
 }
+
 const parseImage = ({ id, dimensions, image }) => {
   return (
     <Image
@@ -53,6 +56,16 @@ const parseImage = ({ id, dimensions, image }) => {
       height={dimensions.height}
       alt={parsePlainText(image.caption)}
     />
+  )
+}
+
+const parseCode = ({ id, code }) => {
+  return (
+    <pre key={id}>
+      <code className={`language-${code.language}`}>
+        {parsePlainText(code.text)}
+      </code>
+    </pre>
   )
 }
 
