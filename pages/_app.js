@@ -3,7 +3,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import '../styles/globals.scss'
 import Prism from 'prismjs'
-import '../styles/prism-material-light.css'
+import '../styles/prism-theme.css'
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {

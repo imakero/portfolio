@@ -5,10 +5,26 @@ export default function Footer() {
     <footer>
       <nav>
         <ul>
-          <li>Home</li>
-          <li>Blog</li>
-          <li>Projects</li>
-          <li>Contact</li>
+          <li>
+            <Link href="/">
+              <a>Home</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/blog">
+              <a>Blog</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/projects">
+              <a>Projects</a>
+            </Link>
+          </li>
+          <li>
+            <Link href="">
+              <a>Contact</a>
+            </Link>
+          </li>
         </ul>
         <ul>
           <li>

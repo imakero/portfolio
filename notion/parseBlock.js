@@ -15,6 +15,8 @@ export default function parseBlock(block) {
       return parseImage(block)
     case 'code':
       return parseCode(block)
+    case 'rich_text':
+      return parseRichText(block)
     default:
       console.log(JSON.stringify(block, null, 2))
       throw new Exception('Could not parse')
@@ -47,6 +49,20 @@ const parseParagraph = (block) => {
   )
 }
 
+const parseRichText = (block) => {
+  return (
+    <p key={block.id}>
+      {block.rich_text.map((text, index) => {
+        let element = parseText(text)
+        if (typeof element !== 'string') {
+          element = React.cloneElement(element, { key: index })
+        }
+        return element
+      })}
+    </p>
+  )
+}
+
 const parseImage = ({ id, dimensions, image }) => {
   return (
     <Image
@@ -69,7 +85,8 @@ const parseCode = ({ id, code }) => {
   )
 }
 
-const parsePlainText = (texts) => texts.map((text) => text.plain_text).join('')
+export const parsePlainText = (texts) =>
+  texts.map((text) => text.plain_text).join('')
 
 const parseText = (text) => wrapAnnotations(text.text.content, text.annotations)
 

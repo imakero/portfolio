@@ -6,7 +6,7 @@ export default function Header() {
       <header>
         <nav>
           <Link href="/">
-            <a>Home</a>
+            <a>Imakero</a>
           </Link>
           <ul>
             <li>

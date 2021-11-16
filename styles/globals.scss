@@ -1,4 +1,5 @@
 $primary-color: #82b35a;
+$secondary-color: #485b38;
 $font-stack: 'Fira Sans', sans-serif;
 $text-color: #1c1c1c;
 $text-muted-color: #c3c3c3;
@@ -20,6 +21,30 @@ $text-muted-color: #c3c3c3;
   text-decoration: line-through;
 }
 
+.blog-list {
+  padding: 0;
+}
+
+.blog-link-container {
+  margin-bottom: 2rem;
+  list-style-type: none;
+  border-bottom: 1px solid $text-color;
+
+  h2 {
+    margin: 0.5rem 0 1rem 0;
+    color: $text-color;
+  }
+}
+
+.blog-link-container:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.blog-description {
+  color: $text-color;
+}
+
 html,
 body {
   @include resetMarginPadding();
@@ -39,10 +64,6 @@ header {
   max-width: 800px;
   @include centerHorizontally();
 
-  nav {
-    margin: 0 4rem;
-  }
-
   ul {
     @include resetMarginPadding();
   }
@@ -57,12 +78,15 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 2rem 0rem;
+    margin: 0 4rem;
   }
 
   a {
     font-weight: bold;
+    color: $secondary-color;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    text-decoration: none;
   }
 }
 
@@ -107,6 +131,11 @@ main {
       border-radius: 50%;
     }
   }
+
+  a {
+    color: $secondary-color;
+    text-decoration: none;
+  }
 }
 
 footer {
@@ -115,7 +144,7 @@ footer {
   max-width: 800px;
 
   nav {
-    margin: 2rem 0 1rem;
+    margin: 2rem 4rem 1rem 4rem;
     display: flex;
 
     ul {
@@ -125,12 +154,17 @@ footer {
     }
 
     ul:first-of-type {
-      margin-left: 4rem;
-      width: calc(33% - 4rem);
+      width: calc(33%);
     }
 
     li {
       margin-bottom: 0.5rem;
+    }
+
+    a {
+      font-weight: bold;
+      color: $secondary-color;
+      text-decoration: none;
     }
   }
 
